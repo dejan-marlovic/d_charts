@@ -1,6 +1,6 @@
 name: d_charts
 description: A web app that creates diffrent types of charts
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/dejan-marlovic/d_components/
 author: dmarl <dmarlovic@hgmail.com>
 environment:
