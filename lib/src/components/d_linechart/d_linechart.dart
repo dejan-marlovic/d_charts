@@ -1,6 +1,8 @@
 import 'package:angular2/angular2.dart';
 import 'dart:html';
 import 'dart:math';
+import 'package:d_charts/src/models/linechart_dataset.dart';
+import 'package:d_charts/src/models/data_point.dart';
 
 @Component(
     selector: 'd-linechart',
@@ -25,20 +27,17 @@ class dLineChartComponent implements AfterViewInit, OnChanges
 
    ngOnChanges(Map<String, SimpleChange> changes)
   {
+    print("drawing..");
     CanvasElement canvasElement = canvasRef.nativeElement;
     context = canvasElement.context2D;
     context.beginPath();
     context.moveTo(0,canvasElement.height);
 
-    for(Map<double,double> dataPoint in data)
+    for(dDataPoint dataPoint in data.dataPoints)
     {
-      for(double x in dataPoint.keys)
-      {
-        context.lineTo(x, dataPoint[x.toString()]);
-        context.arc(x, dataPoint[x], 5, 0, 2*PI, false);
-      }
+      context.lineTo(dataPoint.x, dataPoint.y);
+      context.arc(dataPoint.x, dataPoint.y, 5, 0, 2 * PI, false);
     }
-
     context.fillStyle = 'gray';
     context.fill();
     context.lineWidth = 2;
@@ -56,7 +55,6 @@ class dLineChartComponent implements AfterViewInit, OnChanges
   @ViewChild('canvas')
   ElementRef canvasRef;
 
-
   @Input('data')
-  List <Map <double,double>> data = new List<Map <double,double>>();
+  dLineChartDataset data;
 }
