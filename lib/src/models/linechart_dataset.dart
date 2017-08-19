@@ -30,10 +30,13 @@ class dLineChartDataset
     if (x == null || y == null) throw new FormatException("chart data must be a Map<String, List<double>> with 'x' and 'y as keys");
     if (x.length != y.length) throw new FormatException("chart data x and y lists must be of equal length");
     
-    double xInterval = x[1] - x[0];    
-    for (int i = 0; i < x.length - 1; i++)
-    {
-      if (x[i+1] - x[i] != xInterval) throw new StateError("The interval between each x value must be constant!");
+    if (x.length > 1)
+    {     
+      double xInterval = x[1] - x[0];    
+      for (int i = 0; i < x.length - 1; i++)
+      {
+        if (x[i+1] - x[i] != xInterval) throw new StateError("The interval between each x value must be constant!");
+      }
     }
   }
 
