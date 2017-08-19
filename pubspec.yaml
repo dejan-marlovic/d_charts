@@ -1,0 +1,25 @@
+name: d_charts
+description: A web app that creates diffrent types of charts
+version: 0.0.3
+homepage: https://github.com/dejan-marlovic/d_components/
+author: dmarl <dmarlovic@hgmail.com>
+environment:
+  sdk: '>=1.23.0 <2.0.0'
+dependencies:
+  angular2: ^3.0.0
+  angular_components: ^0.5.2
+dev_dependencies:
+  browser: ^0.10.0
+  dart_to_js_script_rewriter: ^1.0.1
+transformers:
+- angular2:
+    platform_directives:
+    - 'package:angular2/common.dart#COMMON_DIRECTIVES'
+    platform_pipes:
+    - 'package:angular2/common.dart#COMMON_PIPES'
+
+# Uncomment the following in sdk 1.24+ to make pub serve
+# use dartdevc (webdev.dartlang.org/tools/dartdevc).
+#web:
+#  compiler:
+#    debug: dartdevc
