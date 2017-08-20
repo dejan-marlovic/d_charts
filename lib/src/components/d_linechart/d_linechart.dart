@@ -13,11 +13,7 @@ class dLineChartComponent implements AfterViewInit, OnChanges
 {
   void ngAfterViewInit()
   {
-    CanvasElement canvasElement = canvasRef.nativeElement;
-    context = canvasElement.context2D;
-
-
-
+    print("intilizing");
     //context.fillRect(0, 0, 100, 50);
     //context.fillStyle = "red";
     //context.fillRect(0, 0, 100, 50);
@@ -32,18 +28,22 @@ class dLineChartComponent implements AfterViewInit, OnChanges
     context = canvasElement.context2D;
     context.beginPath();
     context.moveTo(0,canvasElement.height);
+    context.fillStyle = 'gray';
+    context.strokeStyle = 'gray';
 
     for(dDataPoint dataPoint in data.dataPoints)
     {
       context.lineTo(dataPoint.x, dataPoint.y);
       context.arc(dataPoint.x, dataPoint.y, 5, 0, 2 * PI, false);
+      context.moveTo(dataPoint.x,dataPoint.y);
     }
-    context.fillStyle = 'gray';
+
     context.fill();
     context.lineWidth = 2;
-    context.strokeStyle = 'gray';
+
     print(canvasElement.height);
     context.stroke();
+    context.save();
 
 
     //context.arc(x, y, 5, 0, 2*PI, false);

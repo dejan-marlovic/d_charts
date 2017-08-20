@@ -10,7 +10,7 @@ class dBarChartComponent implements AfterViewInit
 {
   void ngAfterViewInit()
   {
-    CanvasElement canvasElement = canvasRef.nativeElement;
+    //CanvasElement canvasElement = canvasRef.nativeElement;
     //context = canvasElement.context2D;
     //context.fillStyle = "red";
     //context.fillRect(0, 0, 100, 50);
