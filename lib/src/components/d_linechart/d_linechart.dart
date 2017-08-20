@@ -31,15 +31,16 @@ class dLineChartComponent implements AfterViewInit, OnChanges
     context.fillStyle = 'gray';
     context.strokeStyle = 'gray';
 
+    context.lineWidth = 7;
+
     for(dDataPoint dataPoint in data.dataPoints)
     {
       context.lineTo(dataPoint.x, dataPoint.y);
-      context.arc(dataPoint.x, dataPoint.y, 5, 0, 2 * PI, false);
+      context.arc(dataPoint.x, dataPoint.y, 7, 0, 2 * PI, false);
       context.moveTo(dataPoint.x,dataPoint.y);
     }
 
-    context.fill();
-    context.lineWidth = 2;
+
 
     print(canvasElement.height);
     context.stroke();
